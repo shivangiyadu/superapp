@@ -99,10 +99,19 @@ export default function Info(){
         {selectedMovies.length<3 ?(<p style={{color:"red"}}>Minimum 3 categories are required</p>):(<></>)}
        
         <button 
-          style={{background:"green",padding:"12px",borderRadius:"12px",margin:"12px"}}
-        onClick={()=>{
-            navigate("/showcase");
-        }}disabled={selectedMovies.length<3}
+          style={{
+            background:"green",
+            padding:"12px",
+            borderRadius:"12px",
+            margin:"12px"}}
+
+           onClick={()=>{
+            window.localStorage.setItem(
+                "selectedMovies",
+                JSON.stringify(selectedMovies))
+               navigate("/showcase");
+        }}
+        disabled={selectedMovies.length<3}
         >Next</button>
     </div>  
     </>
