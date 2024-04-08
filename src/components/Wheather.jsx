@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export default function Wheather() {
+export default function Weather() {
     const [weather, setWeather] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -16,16 +16,9 @@ export default function Wheather() {
         .finally(() => setLoading(false));
     }, []);
 
-    if (loading) {
-        return <div>Loading...</div>;
-    }
-
-    if (error) {
-        return <div>Error: {error.message}</div>;
-    }
-
+    // Check if weather is not null before accessing its properties
     if (!weather) {
-        return <div>No weather data available</div>;
+        return <div>Loading...</div>;
     }
 
     // Assuming weather has loaded successfully
@@ -38,7 +31,9 @@ export default function Wheather() {
 
     return (
         <div>
-            {/* Render your weather content here */}
+            <h1>Weather</h1>
+          
+        
         </div>
     );
 }
